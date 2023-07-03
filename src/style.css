@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-  color: #878787;
+  color: #868b97;
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
@@ -33,6 +33,7 @@ li {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  background-color: rgb(238, 240, 243);
 }
 
 .overview {
@@ -74,4 +75,8 @@ li {
 
 .weather-forcast-temperature {
   font-size: 13px;
+}
+.btn {
+  background-color: rgb(97, 197, 208);
+  transition: 1s;
 }
