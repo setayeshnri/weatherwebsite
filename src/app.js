@@ -72,6 +72,13 @@ function getForcast(coordinates) {
   https: axios.get(apiUrl).then(displayForcast);
 }
 function displayTemperature(response) {
+  console.log(response);
+  let time = document.querySelector("img.time");
+  let timeSrc =
+    response.data.sys.type === 2 ? "/image/night.jpeg" : "/image/day.jpeg";
+
+  time.setAttribute("src", timeSrc);
+
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
