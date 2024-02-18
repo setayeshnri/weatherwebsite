@@ -1,12 +1,12 @@
 body {
   font-family: Arial, sans-serif;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 2100px;
 }
-.time {
-  width: 100%;
-  height: 100%;
-}
+
 h1 {
-  color: black;
+  color: rgb(232, 229, 229);
   font-size: 30px;
   font-weight: 100;
   line-height: 28px;
@@ -16,22 +16,23 @@ li {
   list-style: none;
 
   text-transform: capitalize;
-  color: rgb(100, 98, 98);
+  color: rgba(246, 243, 243, 0.772);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
 }
 .weatherwebsite-wrapper {
   max-width: 600px;
-  margin: 30px auto;
+  margin: auto;
+  z-index: +2;
 }
 
 .weatherwebsite {
   margin-top: 200px;
   padding: 20px;
-  border: 1px solid #dadde1;
+
   border-radius: 5px;
-  background-color: rgb(173, 191, 218);
+  background-color: rgba(40, 50, 65, 0.675);
 }
 
 .overview {
@@ -47,7 +48,7 @@ li {
 }
 
 .weather-temperature strong {
-  color: rgb(33, 33, 33);
+  color: rgba(254, 249, 249, 0.772);
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
@@ -60,10 +61,11 @@ li {
 .weather-forcast {
   margin-top: 20px;
   text-align: center;
+  color: white;
 }
 .weather-forcast-date {
   font-size: 16px;
-  color: black;
+  color: white;
   opacity: 0.5;
 }
 
@@ -74,9 +76,19 @@ li {
 .weather-forcast-temperature {
   font-size: 13px;
 }
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .btn {
-  background-color: rgb(97, 197, 208);
+  border: 0cap;
+  background-color: rgba(27, 36, 76, 0.495);
   transition: 1s;
+  height: 40px;
+
+  margin-top: -1px;
 }
 .sec1 {
   display: flex;
@@ -88,4 +100,40 @@ li {
 .sec2 {
   display: flex;
   flex-direction: row;
+}
+@media (max-width: 768px) {
+  .btn {
+    margin-left: -20px;
+  }
+}
+@media (max-width: 470px) {
+  .input {
+    width: 300px;
+  }
+}
+@media (max-width: 430px) {
+  .input {
+    width: 250px;
+  }
+  .btn {
+    margin-left: -50px;
+  }
+}
+@media (max-width: 406px) {
+  .btn {
+    display: none;
+  }
+  .input {
+    width: 120%;
+  }
+  .sec1 {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sec2 {
+    margin-left: -20px;
+  }
+  .weather-forcast {
+    margin-left: -10px;
+  }
 }

@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="src/style.css" />
     <title>weatherwebsite</title>
   </head>
-  <body>
-    <img  src="" alt="" class="time" />
+  <body >
+   
     <div class="container">
       <div class="weatherwebsite- wrapper">
         <div class="weatherwebsite">
-          <form id="search-form" class="mb-3">
-            <div class="row">
+          <form id="search-form" >
+            <div class="row top">
               <div class="col-10">
                 <input
                   type="search"
                   placeholder="Type a city..."
-                  class="form-control"
+                  class="form-control input"
                   id="city-input"
                   autocomplete="off"
                 />
@@ -44,7 +44,7 @@
             <div class="weather-temperature sec2">
               <img src="" alt="clear" id="icon" class="float-left" />
 
-              <strong id="temperature"></strong><span class="units">°C</span>
+              <strong id="temperature"></strong><span style="color: white;" class="units">°C</span>
 
               <ul>
                 <li>Humidity: <span id="humidity"></span>%</li>
@@ -70,7 +70,7 @@
         </small>
       </div>
     </div>
-    <div class="container"></div>
+   
     <script src="src/app.js"></script>
   </body>
 </html>

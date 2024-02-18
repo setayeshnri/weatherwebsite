@@ -1,5 +1,24 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+// function formatDate(timestamp, timeZone) {
+//   let date = new Date(timestamp + timeZone);
+//   let options = {
+//     weekday: "long",
+//     hour: "numeric",
+//     minute: "numeric",
+//     // timeZone: timeZone,
+//   };
+//   return date.toLocaleString(undefined, options);
+// }
+
+// function formatDay(timestamp, timeZone) {
+//   let date = new Date(timestamp * 1000);
+//   let options = { weekday: "short", timeZone: timeZone };
+//   return date.toLocaleString(undefined, options);
+// }
+
+function formatDate(timezone) {
+  let date = new Date(
+    Date.now() + timezone + new Date().getTimezoneOffset() * 60 * 1000
+  );
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -73,11 +92,16 @@ function getForcast(coordinates) {
 }
 function displayTemperature(response) {
   console.log(response);
-  let time = document.querySelector("img.time");
-  let timeSrc =
-    response.data.sys.type === 2 ? "/image/night.jpeg" : "/image/day.jpeg";
+  let body = document.querySelector("body");
+  let sunrise = response.data.sys.sunrise * 1000;
+  let sunset = response.data.sys.sunset * 1000;
+  let currentTime = new Date().getTime();
 
-  time.setAttribute("src", timeSrc);
+  if (currentTime > sunrise && currentTime < sunset) {
+    body.style.backgroundImage = "url('/image/day.png')";
+  } else {
+    body.style.backgroundImage = "url('/image/night.png')";
+  }
 
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -94,7 +118,7 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.timezone * 1000);
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -118,4 +142,4 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("new York");
+search("stockholm");
